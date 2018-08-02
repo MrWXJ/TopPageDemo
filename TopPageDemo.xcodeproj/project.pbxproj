@@ -15,6 +15,8 @@
 		235912392112F9DD003EF9FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 235912382112F9DD003EF9FD /* main.m */; };
 		235912432112F9DD003EF9FD /* TopPageDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 235912422112F9DD003EF9FD /* TopPageDemoTests.m */; };
 		2359124E2112F9DD003EF9FD /* TopPageDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2359124D2112F9DD003EF9FD /* TopPageDemoUITests.m */; };
+		2359125D2112FBD4003EF9FD /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2359125B2112FBD4003EF9FD /* CustomScrollView.m */; };
+		235912602112FBE5003EF9FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2359125F2112FBE5003EF9FD /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		235912492112F9DD003EF9FD /* TopPageDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopPageDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2359124D2112F9DD003EF9FD /* TopPageDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPageDemoUITests.m; sourceTree = "<group>"; };
 		2359124F2112F9DD003EF9FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2359125B2112FBD4003EF9FD /* CustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
+		2359125C2112FBD4003EF9FD /* CustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
+		2359125E2112FBE5003EF9FD /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		2359125F2112FBE5003EF9FD /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				2359122A2112F9DD003EF9FD /* AppDelegate.m */,
 				2359122C2112F9DD003EF9FD /* ViewController.h */,
 				2359122D2112F9DD003EF9FD /* ViewController.m */,
+				2359125E2112FBE5003EF9FD /* RootViewController.h */,
+				2359125F2112FBE5003EF9FD /* RootViewController.m */,
+				2359125C2112FBD4003EF9FD /* CustomScrollView.h */,
+				2359125B2112FBD4003EF9FD /* CustomScrollView.m */,
 				2359122F2112F9DD003EF9FD /* Main.storyboard */,
 				235912322112F9DD003EF9FD /* Assets.xcassets */,
 				235912342112F9DD003EF9FD /* LaunchScreen.storyboard */,
@@ -267,7 +277,9 @@
 			files = (
 				2359122E2112F9DD003EF9FD /* ViewController.m in Sources */,
 				235912392112F9DD003EF9FD /* main.m in Sources */,
+				2359125D2112FBD4003EF9FD /* CustomScrollView.m in Sources */,
 				2359122B2112F9DD003EF9FD /* AppDelegate.m in Sources */,
+				235912602112FBE5003EF9FD /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
