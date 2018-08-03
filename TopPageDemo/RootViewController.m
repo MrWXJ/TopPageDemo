@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "WXJSlidingNavigationView.h"
 
 #define WIDTH [[UIScreen mainScreen] bounds].size.width
 #define HEIGHT [[UIScreen mainScreen] bounds].size.height
@@ -20,27 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor orangeColor];
-    
-    // Do any additional setup after loading the view.
-    
     NSArray *arr = @[@"关注",@"推荐",@"贵阳",@"精选",@"小说",@"科学",@"直播",@"电影"];
+    WXJSlidingNavigationView *slid = [[WXJSlidingNavigationView alloc] initWithFrame:CGRectMake(0, 60, WIDTH, HEIGHT - 60) menuArray:arr didSelectIndex:^(NSInteger index) {
+        NSLog(@"index-----%ld",index);
+    }];
+    [self.view addSubview:slid];
     
-    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,100, WIDTH, 40)];
-    scroll.contentSize = CGSizeMake(100*arr.count, 40);
-    scroll.bounces = NO;
-    scroll.scrollEnabled = YES;
-    scroll.showsHorizontalScrollIndicator = NO;
-    scroll.backgroundColor = [UIColor redColor];
-    [scroll flashScrollIndicators];
-    [self.view addSubview:scroll];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(300, 0, 100, 40)];
-    view.backgroundColor = [UIColor whiteColor];
-    [scroll addSubview:view];
-    
-    
-    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    view.backgroundColor = [UIColor redColor];
+    UIView *v1 = slid.allViewArray[1];
+    [v1 addSubview:view];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,14 +39,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
