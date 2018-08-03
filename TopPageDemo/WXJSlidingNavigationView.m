@@ -13,8 +13,6 @@
 
 @interface WXJSlidingNavigationView ()<UIScrollViewDelegate>
 
-@property (nonatomic, strong) CustomScrollView *contentScrollView;
-@property (nonatomic, strong) UIScrollView *headerScrollview;
 @property (nonatomic, assign) NSUInteger changeIndex;
 @property (nonatomic, strong) NSMutableArray *buttonTotalArray;
 @property (nonatomic, strong) UIButton *selectButton;
@@ -63,6 +61,7 @@
             int G = (arc4random() % 256) ;
             int B = (arc4random() % 256) ;
             view.backgroundColor=[UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1];
+//            view.backgroundColor = [UIColor whiteColor];
             [_allViewArray addObject:view];
         }
     }
@@ -81,12 +80,13 @@
             menuArray:(NSArray *)menuArray
        didSelectIndex:(DidSelectIndex)didSelectIndex {
     self = [super initWithFrame:frame];
+    self.backgroundColor = [UIColor whiteColor];
     if (self) {
         _changeIndex = 0;
         _headerWidth = frame.size.width;
         [self.menuArray addObjectsFromArray:menuArray];
         self.didSelectIndex = didSelectIndex;
-
+        
         [self creatHeaderScrollView];
         [self creatContentScrollView];
     }
@@ -98,8 +98,8 @@
  */
 - (void)creatHeaderScrollView {
     _headerScrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, _headerWidth, headerHeight)];
-    _headerScrollview.contentSize = CGSizeMake(titleWidth * _menuArray.count, 40);
-    _headerScrollview.bounces = NO;
+    _headerScrollview.contentSize = CGSizeMake(titleWidth * _menuArray.count, headerHeight);
+//    _headerScrollview.bounces = NO;
     _headerScrollview.scrollEnabled = YES;
     _headerScrollview.showsHorizontalScrollIndicator = NO;
     [_headerScrollview flashScrollIndicators];
@@ -107,7 +107,7 @@
     
     for (int i = 0; i < _menuArray.count; i++) {
         UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        titleButton.frame = CGRectMake(titleWidth*i, 0, titleWidth, headerHeight);
+        titleButton.frame = CGRectMake(titleWidth*i, 0, titleWidth, headerHeight-1);
         [titleButton setTitle:_menuArray[i] forState:UIControlStateNormal];
         [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         titleButton.backgroundColor = [UIColor whiteColor];
@@ -117,6 +117,12 @@
         [_headerScrollview addSubview:titleButton];
         [self.buttonTotalArray addObject:titleButton];
     }
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, headerHeight-0.5, _headerWidth, 0.5)];
+    line.backgroundColor = [UIColor lightGrayColor];
+    line.alpha = 0.2;
+    [self addSubview:line];
+    
     self.selectIndex = 1;
 }
 
@@ -127,7 +133,7 @@
     _contentScrollView = [[CustomScrollView alloc] init];
     _contentScrollView.frame = CGRectMake(0, CGRectGetMaxY(_headerScrollview.frame), _headerWidth, self.frame.size.height-headerHeight);
     _contentScrollView.delegate = self;
-    _contentScrollView.backgroundColor = [UIColor lightGrayColor];
+    _contentScrollView.backgroundColor = [UIColor whiteColor];
     _contentScrollView.pagingEnabled = YES;
     _contentScrollView.scrollEnabled = YES;
     _contentScrollView.bounces = NO;
