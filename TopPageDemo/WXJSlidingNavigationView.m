@@ -69,6 +69,14 @@
     return _allViewArray;
 }
 
+/**
+ 初始化滑动导航
+ 
+ @param frame frame description
+ @param menuArray 菜单名字数组
+ @param didSelectIndex 点击菜单的index
+ @return WXJSlidingNavigationView
+ */
 - (instancetype)initWithFrame:(CGRect)frame
             menuArray:(NSArray *)menuArray
        didSelectIndex:(DidSelectIndex)didSelectIndex {
@@ -117,7 +125,6 @@
  */
 - (void)creatContentScrollView {
     _contentScrollView = [[CustomScrollView alloc] init];
-//    _headerScrollview.frame = CGRectMake(0, 100, _headerWidth, headerHeight);
     _contentScrollView.frame = CGRectMake(0, CGRectGetMaxY(_headerScrollview.frame), _headerWidth, self.frame.size.height-headerHeight);
     _contentScrollView.delegate = self;
     _contentScrollView.backgroundColor = [UIColor lightGrayColor];
